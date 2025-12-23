@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pay Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0070ba, #003087);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .payment-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #005ea6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="payment-box">
+  <h2>Make a Payment</h2>
+  <p>Enter amount in GBP (£)</p>
+
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+
+    <!-- PayPal command -->
+    <input type="hidden" name="cmd" value="_xclick">
+
+    <!-- YOUR PAYPAL BUSINESS EMAIL -->
+    <input type="hidden" name="business" value="ofialekhya@gmail.com">
+
+    <!-- Currency -->
+    <input type="hidden" name="currency_code" value="GBP">
+
+    <!-- Item name -->
+    <input type="hidden" name="item_name" value="Online Payment">
+
+    <!-- Redirect pages -->
+    <input type="hidden" name="return" value="success.html">
+    <input type="hidden" name="cancel_return" value="cancel.html">
+
+    <!-- User enters amount -->
+    <input
+      type="number"
+      name="amount"
+      min="1"
+      step="0.01"
+      placeholder="Enter amount (£)"
+      required
+    >
+
+    <button type="submit">Pay with PayPal</button>
+  </form>
+</div>
+
+</body>
+</html>
